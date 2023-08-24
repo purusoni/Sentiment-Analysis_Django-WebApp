@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <title>Sentiment Analysis</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <style>
+    body {
+      padding: 50px;
+    }
+    button {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    form {
+      margin-top: 50px;
+    }
+    input {
+      margin-top: 5px;
+    }
+    .sentiment_output {
+      margin-top: 50px;
+    }
+    .sentiment_label {
+      margin-bottom: 20px;
+    }
+    h6{
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+    <h1 class="text-center fw-bold">Sentiment Analysis</h1>
+    <h6 class="text-center">🤗😱⚡️ Powered by <a href="https://huggingface.co/docs/transformers/model_doc/distilbert">DistilBERT</a> 😡😢❤️</h1>
+    <h4 class="text-center">Analyze the mood of any text with the Sentiment Analysis tool, powered by a fine-tuned DistilBERT model. Simply type or paste your content, and instantly understand its sentiment. Voice input coming soon!</h3>
+    <div class="ml-sm">
+      <form method="post" >
+        <div class="form-group">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn btn-primary">Analyze</button>
+        </div>
+      </form>      
+    </div>
+    <div class="w-50 mx-auto sentiment_output">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: {{joy}}%;" aria-valuenow="{{joy}}" aria-valuemin="0" aria-valuemax="100" ></div>
+        </div>
+        <p class="sentiment_label">🤗 Joy: {{joy}}%</p>
+
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: {{love}}%;" aria-valuenow="{{love}}" aria-valuemin="0" aria-valuemax="100" ></div>
+        </div>
+        <p class="sentiment_label">❤️ Love: {{love}}%</p>
+
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: {{sadness}}%;" aria-valuenow="{{sadness}}" aria-valuemin="0" aria-valuemax="100" ></div>
+        </div>
+        <p class="sentiment_label">😢 Sadness: {{sadness}}%</p>
+
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: {{anger}}%;" aria-valuenow="{{anger}}" aria-valuemin="0" aria-valuemax="100" ></div>
+        </div>
+        <p class="sentiment_label">😡 Anger: {{anger}}%</p>
+
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: {{fear}}%;" aria-valuenow="{{fear}}" aria-valuemin="0" aria-valuemax="100" ></div>
+        </div>
+        <p class="sentiment_label">😱 Fear: {{fear}}%</p>
+
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: {{surprise}}%;" aria-valuenow="{{surprise}}" aria-valuemin="0" aria-valuemax="100" ></div>
+        </div>
+        <p class="sentiment_label">⚡️ Surprise: {{surprise}}%</p>
+    </div>
+
+</body>
+</html>
