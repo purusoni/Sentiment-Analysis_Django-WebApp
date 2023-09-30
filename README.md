@@ -1,4 +1,4 @@
-# Django_SentimentAnalysis_WebApp_Project
+# Sentiment Analysis WebApp
 
 A web application built with Django that performs sentiment analysis on text data using a fine-tuned DistilBERT model. Users can input text to get the sentiment as output. Future versions will include Automatic Speech Recognition (ASR) to allow users to speak instead of typing. I've enhanced the website's aesthetics using Bootstrap for the frontend, ensuring it looks polished and user-friendly.
 
